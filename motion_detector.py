@@ -1,10 +1,19 @@
-# Pyhton program to implement
+# Python program to implement
 # WebCam Motion Detector
 
 # importing OpenCV, time and Pandas library
-import cv2, time, pandas, logging
+import cv2, time, pandas
+from pyHS100 import Discover, SmartBulb
 # importing datetime class from datetime library
 from datetime import datetime
+
+for dev in Discover.discover().values():
+    if dev.alias == 'desk':
+        deskLight = dev
+    elif dev.alias == 'couch':
+        couchLight = dev
+    elif dev.alias == 'door':
+        doorLight = dev
 
 # Assigning our static_back to None
 static_back = None
